@@ -22,7 +22,7 @@ export class SearchComponent {
     private weatherService: WeatherService
   ) {}
 
-  search(searchForm: NgForm) {
+  search(searchForm: NgForm): void {
     if (searchForm.invalid) {
       return;
     }

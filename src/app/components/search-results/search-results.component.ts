@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { SET_SELECTED } from 'src/app/store';
@@ -8,20 +8,22 @@ import { SET_SELECTED } from 'src/app/store';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent {
+export class SearchResultsComponent implements DoCheck {
   state: Observable<any>;
   results: any[] = [];
+  selected: any;
   query: string;
   loading: boolean;
   error: string;
 
   constructor(private store: Store<any>) {
     this.state = store.pipe(select('store'));
-    this.state.subscribe(({ results, query, loading, error }) => {
+    this.state.subscribe(({ results, query, loading, error, selected }) => {
       this.loading = loading;
       this.error = error;
-      this.results = results;
       this.query = query;
+      this.results = results;
+      this.selected = selected;
     });
   }
 
@@ -32,11 +34,17 @@ export class SearchResultsComponent {
     });
   }
 
-  resultsFound() {
+  resultsFound(): boolean {
     return this.results?.length > 0;
   }
 
-  noResultsFound() {
-    return this.query && this.results?.length === 0;
+  noResultsFound(): boolean {
+    return !!(this.query && this.results?.length === 0);
+  }
+
+  ngDoCheck(): void {
+    if (!this.selected && this.results?.length === 1) {
+      this.select(this.results[0].id.toString());
+    }
   }
 }
