@@ -2,6 +2,7 @@ import { Component, DoCheck } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { SET_SELECTED } from 'src/app/store';
+import { City } from '../../city';
 
 @Component({
   selector: 'search-results',
@@ -10,8 +11,8 @@ import { SET_SELECTED } from 'src/app/store';
 })
 export class SearchResultsComponent implements DoCheck {
   state: Observable<any>;
-  results: any[] = [];
-  selected: any;
+  results: City[] = [];
+  selected: number | null;
   query: string;
   loading: boolean;
   error: string;
@@ -27,7 +28,7 @@ export class SearchResultsComponent implements DoCheck {
     });
   }
 
-  select(id: string) {
+  select(id: number) {
     this.store.dispatch({
       type: SET_SELECTED,
       payload: id,
@@ -44,7 +45,7 @@ export class SearchResultsComponent implements DoCheck {
 
   ngDoCheck(): void {
     if (!this.selected && this.results?.length === 1) {
-      this.select(this.results[0].id.toString());
+      this.select(this.results[0].id);
     }
   }
 }
