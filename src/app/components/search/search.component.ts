@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { NgForm } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { WeatherService } from '../../weather.service';
 import {
   SET_SEARCH_BEGIN,
   SET_SEARCH_SUCCESS,
   SET_SEARCH_FAILURE,
-} from '../../reducer';
+} from '../../store';
 
 @Component({
   selector: 'search',
@@ -15,6 +15,8 @@ import {
 })
 export class SearchComponent {
   query: string;
+  units: string = 'metric';
+
   constructor(
     private store: Store<any>,
     private weatherService: WeatherService
@@ -30,7 +32,7 @@ export class SearchComponent {
       payload: this.query,
     });
 
-    this.weatherService.find(this.query).subscribe(
+    this.weatherService.find(this.query, this.units).subscribe(
       (res: any) => {
         this.store.dispatch({
           type: SET_SEARCH_SUCCESS,

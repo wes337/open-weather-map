@@ -3,13 +3,15 @@ export const initialState = {
   results: [],
   loading: false,
   error: null,
+  selected: null,
 };
 
 export const SET_SEARCH_BEGIN = 'SET_SEARCH_BEGIN';
 export const SET_SEARCH_SUCCESS = 'SET_SEARCH_SUCCESS';
 export const SET_SEARCH_FAILURE = 'SET_SEARCH_FAILURE';
+export const SET_SELECTED = 'SET_SELECTED';
 
-export const reducer = (state = initialState, action: any) => {
+export const store = (state = initialState, action: any) => {
   switch (action.type) {
     case SET_SEARCH_BEGIN: {
       return {
@@ -33,6 +35,12 @@ export const reducer = (state = initialState, action: any) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    }
+    case SET_SELECTED: {
+      return {
+        ...state,
+        selected: action.payload,
       };
     }
     default:

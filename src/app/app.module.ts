@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchComponent } from './components/search/search.component';
 import { WeatherService } from './weather.service';
 import { AppComponent } from './app.component';
-import { reducer } from './reducer';
+import { store } from './store';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 @NgModule({
@@ -16,7 +16,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     BrowserModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({
-      search: reducer,
+      store,
     }),
     FormsModule,
     HttpClientModule,

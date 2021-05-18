@@ -1,7 +1,7 @@
 <div>
   <span id="title">Weather App</span>
   <form (ngSubmit)="search(searchForm)" #searchForm="ngForm">
-    <div class="form-field">
+    <div>
       <input
         placeholder="Search Location"
         [(ngModel)]="query"
@@ -18,6 +18,30 @@
           >Please enter at least 3 characters.</span
         >
       </div>
+    </div>
+    <div>
+      <input
+        id="metric"
+        value="metric"
+        type="radio"
+        name="u"
+        #u="ngModel"
+        [(ngModel)]="units"
+        required
+      />
+      <label for="metric">Metric</label>
+    </div>
+    <div>
+      <input
+        id="imperial"
+        value="imperial"
+        type="radio"
+        name="u"
+        #u="ngModel"
+        [(ngModel)]="units"
+        required
+      />
+      <label for="imperial">Imperial</label>
     </div>
     <button type="submit">Search</button>
   </form>

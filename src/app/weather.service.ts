@@ -10,9 +10,9 @@ const apiKey: string = environment.apiKey;
 export class WeatherService {
   constructor(private http: HttpClient) {}
 
-  find(searchQuery: string) {
+  find(searchQuery: string, units: string) {
     return this.http.get(
-      `${environment.apiUrl}/find?q=${searchQuery}&type=like&sort=population&cnt=30&appid=${apiKey}`
+      `${environment.apiUrl}/find?q=${searchQuery}&units=${units}&type=like&sort=population&cnt=30&appid=${apiKey}`
     );
   }
 }
