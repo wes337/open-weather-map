@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { NgForm } from '@angular/forms';
 import { WeatherService } from '../../weather.service';
-import { SET_SEARCH_QUERY } from '../../reducer';
+import {
+  SET_SEARCH_BEGIN,
+  SET_SEARCH_SUCCESS,
+  SET_SEARCH_FAILURE,
+} from '../../reducer';
 
 @Component({
   selector: 'search',
@@ -10,7 +14,7 @@ import { SET_SEARCH_QUERY } from '../../reducer';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent {
-  searchQuery: string;
+  query: string;
   constructor(
     private store: Store<any>,
     private weatherService: WeatherService
@@ -20,20 +24,29 @@ export class SearchComponent {
     if (searchForm.invalid) {
       return;
     }
-    console.log('here');
-    this.weatherService.find(this.searchQuery).subscribe(
-      (res) => {
-        console.log(res);
+
+    this.store.dispatch({
+      type: SET_SEARCH_BEGIN,
+      payload: this.query,
+    });
+
+    this.weatherService.find(this.query).subscribe(
+      (res: any) => {
+        this.store.dispatch({
+          type: SET_SEARCH_SUCCESS,
+          payload: res?.list || [],
+        });
       },
       (err) => {
         if (err?.error?.message) {
-          console.error(err.error.message);
+          this.store.dispatch({
+            type: SET_SEARCH_FAILURE,
+            payload: err?.error?.message,
+          });
           return;
         }
         throw err;
-      },
-      () => {}
+      }
     );
-    this.store.dispatch({ type: SET_SEARCH_QUERY, payload: this.searchQuery });
   }
 }

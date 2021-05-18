@@ -16,7 +16,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     BrowserModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({
-      searchQuery: reducer,
+      search: reducer,
     }),
     FormsModule,
     HttpClientModule,

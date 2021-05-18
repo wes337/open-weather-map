@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { WeatherService } from '../../weather.service';
 
 @Component({
   selector: 'search-results',
@@ -9,43 +8,27 @@ import { WeatherService } from '../../weather.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-  searchQuery$: Observable<string>;
-  searchQuery: string;
-  searchResults: any = <any>{};
-  msg: string;
+  search: Observable<any>;
+  results: any[] = [];
+  query: string;
+  loading: boolean;
+  error: string;
 
-  constructor(
-    private store: Store<any>,
-    private weatherService: WeatherService
-  ) {
-    this.searchQuery$ = store.pipe(select('searchQuery'));
-    this.searchQuery$.subscribe((searchQuery) => {
-      this.searchQuery = searchQuery;
-      this.searchWeather(searchQuery);
+  constructor(private store: Store<any>) {
+    this.search = store.pipe(select('search'));
+    this.search.subscribe(({ results, query, loading, error }) => {
+      this.loading = loading;
+      this.error = error;
+      this.results = results;
+      this.query = query;
     });
   }
 
-  searchWeather(searchQuery: string) {
-    this.msg = '';
-    this.searchResults = {};
-
-    // this.weatherService.find(searchQuery).subscribe(
-    //   (res) => {
-    //     console.log(res);
-    //     this.searchResults = res;
-    //   },
-    //   (err) => {
-    //     if (err?.error?.message) {
-    //       this.msg = err.error.message;
-    //       return;
-    //     }
-    //     throw err;
-    //   },
-    //   () => {}
-    // );
+  resultsFound() {
+    return this.results?.length > 0;
   }
 
-  resultFound() {
-    return this.searchResults?.list.length > 0;
+  noResultsFound() {
+    return this.query && this.results?.length === 0;
   }
 }

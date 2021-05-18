@@ -4,17 +4,17 @@
     <div class="form-field">
       <input
         placeholder="Search Location"
-        [(ngModel)]="searchQuery"
-        #query="ngModel"
-        name="query"
+        [(ngModel)]="query"
+        #q="ngModel"
+        name="q"
         required
         type="text"
         autocomplete="off"
         minlength="3"
       />
-      <div *ngIf="query.invalid && (query.dirty || query.touched)">
-        <span *ngIf="query.errors?.required">Location is required.</span>
-        <span *ngIf="query.errors?.minlength"
+      <div *ngIf="q.invalid && (q.dirty || q.touched)">
+        <span *ngIf="q.errors?.required">Location is required.</span>
+        <span *ngIf="q.errors?.minlength"
           >Please enter at least 3 characters.</span
         >
       </div>
