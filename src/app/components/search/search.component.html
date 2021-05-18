@@ -1,0 +1,24 @@
+<div>
+  <span id="title">Weather App</span>
+  <form (ngSubmit)="search(searchForm)" #searchForm="ngForm">
+    <div class="form-field">
+      <input
+        placeholder="Search Location"
+        [(ngModel)]="searchQuery"
+        #query="ngModel"
+        name="query"
+        required
+        type="text"
+        autocomplete="off"
+        minlength="3"
+      />
+      <div *ngIf="query.invalid && (query.dirty || query.touched)">
+        <span *ngIf="query.errors?.required">Location is required.</span>
+        <span *ngIf="query.errors?.minlength"
+          >Please enter at least 3 characters.</span
+        >
+      </div>
+    </div>
+    <button type="submit">Search</button>
+  </form>
+</div>
