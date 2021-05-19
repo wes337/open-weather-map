@@ -1,48 +1,54 @@
-<div>
-  <span id="title">Weather App</span>
+<div class="search">
   <form (ngSubmit)="search(searchForm)" #searchForm="ngForm">
-    <div>
-      <input
-        placeholder="Search Location"
-        [(ngModel)]="query"
-        #q="ngModel"
-        name="q"
-        required
-        type="text"
-        autocomplete="off"
-        minlength="3"
-      />
-      <div *ngIf="q.invalid && (q.dirty || q.touched)">
+    <div class="search-input-wrapper">
+      <div class="search-input">
+        <mat-icon aria-hidden="false" aria-label="Search">search</mat-icon>
+        <input
+          placeholder="Search Location"
+          [(ngModel)]="query"
+          #q="ngModel"
+          name="q"
+          required
+          type="text"
+          autocomplete="off"
+          minlength="3"
+        />
+      </div>
+      <div
+        *ngIf="q.invalid && (q.dirty || q.touched)"
+        class="search-input-errors"
+      >
         <span *ngIf="q.errors?.required">Location is required.</span>
         <span *ngIf="q.errors?.minlength"
           >Please enter at least 3 characters.</span
         >
       </div>
     </div>
-    <div>
-      <input
-        id="metric"
-        value="metric"
-        type="radio"
-        name="u"
-        #u="ngModel"
-        [(ngModel)]="units"
-        required
-      />
-      <label for="metric">Metric</label>
+    <div class="uom-selector">
+      <div>
+        <input
+          id="metric"
+          value="metric"
+          type="radio"
+          name="u"
+          #u="ngModel"
+          [(ngModel)]="units"
+          required
+        />
+        <label for="metric">Metric</label>
+      </div>
+      <div>
+        <input
+          id="imperial"
+          value="imperial"
+          type="radio"
+          name="u"
+          #u="ngModel"
+          [(ngModel)]="units"
+          required
+        />
+        <label for="imperial">Imperial</label>
+      </div>
     </div>
-    <div>
-      <input
-        id="imperial"
-        value="imperial"
-        type="radio"
-        name="u"
-        #u="ngModel"
-        [(ngModel)]="units"
-        required
-      />
-      <label for="imperial">Imperial</label>
-    </div>
-    <button type="submit">Search</button>
   </form>
 </div>
