@@ -1,10 +1,13 @@
-export const initialState = {
-  query: '',
-  results: [],
-  loading: false,
-  error: null,
-  selected: null,
-};
+const cachedState = localStorage.getItem('cachedState');
+export const initialState = cachedState
+  ? JSON.parse(cachedState)
+  : {
+      query: '',
+      results: [],
+      loading: false,
+      error: null,
+      selected: null,
+    };
 
 export const SET_SEARCH_BEGIN = 'SET_SEARCH_BEGIN';
 export const SET_SEARCH_SUCCESS = 'SET_SEARCH_SUCCESS';

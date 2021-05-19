@@ -2,8 +2,8 @@
 <div *ngIf="error">
   <p>{{ error }}</p>
 </div>
-<div *ngIf="!loading">
-  <div *ngIf="resultsFound()">
+<div *ngIf="!loading" class="search-results">
+  <div *ngIf="resultsFound()" class="list">
     <weather-card *ngFor="let result of results" [city]="result"></weather-card>
   </div>
   <div *ngIf="noResultsFound()">
