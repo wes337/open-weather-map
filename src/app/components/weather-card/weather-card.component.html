@@ -6,9 +6,7 @@
 >
   <div class="header">
     <div class="title">{{ city.name }}, {{ city.sys.country }}</div>
-    <div class="time">
-      {{ city.dt }}
-    </div>
+    <div class="time">Updated {{ getTimeString(city.dt) }}</div>
   </div>
   <div class="weather" *ngIf="city.weather.length">
     <img
@@ -22,9 +20,18 @@
   </div>
   <div class="footer">
     <div class="details">
-      <div class="wind">{{ city.wind.speed }}</div>
-      <div class="humidity">{{ city.main.humidity }}</div>
-      <div class="pressure">{{ city.main.pressure }}</div>
+      <div class="details-item">
+        <mat-icon aria-hidden="false" aria-label="Wind speed">air</mat-icon>
+        &nbsp;{{ city.wind.speed }}
+      </div>
+      <div class="details-item">
+        <mat-icon aria-hidden="false" aria-label="Humidity">water</mat-icon>
+        &nbsp;{{ city.main.humidity }}
+      </div>
+      <div class="details-item">
+        <mat-icon aria-hidden="false" aria-label="Pressure">storm</mat-icon>
+        &nbsp;{{ city.main.pressure }}
+      </div>
     </div>
     <h1 class="temp">{{ city.main.temp | number: "1.0-0" }}&deg;</h1>
   </div>

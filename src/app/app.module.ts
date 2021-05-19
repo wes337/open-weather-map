@@ -4,6 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 import { SearchComponent } from './components/search/search.component';
 import { WeatherService } from './weather.service';
 import { AppComponent } from './app.component';
@@ -12,7 +13,12 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, SearchResultsComponent, WeatherCardComponent],
+  declarations: [
+    AppComponent,
+    SearchComponent,
+    SearchResultsComponent,
+    WeatherCardComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -21,6 +27,7 @@ import { WeatherCardComponent } from './components/weather-card/weather-card.com
     }),
     FormsModule,
     HttpClientModule,
+    MatIconModule,
   ],
   providers: [WeatherService],
   bootstrap: [AppComponent],

@@ -1,20 +1,29 @@
 .weather-card {
   display: flex;
-  width: 250px;
   flex-direction: column;
   cursor: pointer;
-  padding: 16px;
+  width: 350px;
+  padding: 32px;
   border-radius: 8px;
-  background-image: radial-gradient(
-    circle farthest-corner at -4% -12.9%,
-    rgba(74, 98, 110, 1) 0.3%,
-    rgba(30, 33, 48, 1) 90.2%
-  );
+  background-color: #282627;
+  background-image: linear-gradient(60deg, #040404 0%, #282627 90%);
+  transition: all 200ms ease-in-out;
 
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .title {
+      background-color: #212121;
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: 1px solid #4c4c4c;
+    }
+
+    .time {
+      color: #949494;
+    }
   }
 
   .weather {
@@ -23,6 +32,10 @@
     align-items: center;
     justify-content: center;
     padding: 48px;
+
+    .weather-description {
+      text-transform: capitalize;
+    }
   }
 
   .footer {
@@ -30,12 +43,24 @@
     justify-content: space-between;
     align-items: flex-end;
 
+    .details-item {
+      display: flex;
+      align-items: center;
+
+      .mat-icon {
+        color: #949494;
+      }
+    }
+
     h1 {
+      font-size: 48px;
       margin: 0px;
+      color: #ffffff;
     }
   }
 
   &.is-selected {
-    box-shadow: 0 0 0 2px #fff;
+    transform: scale(1.05);
+    box-shadow: #04040450 0px 8px 24px 0px, #4c4c4c 0px 0px 0px 1px;
   }
 }
