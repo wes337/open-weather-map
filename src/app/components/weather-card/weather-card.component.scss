@@ -19,6 +19,7 @@
   animation-name: fadeIn;
   animation-duration: 500ms;
   transition: all 200ms ease-in-out;
+  box-shadow: #04040450 0px 8px 24px 0px, #4c4c4c 0px 0px 0px 1px;
 
   .header {
     display: flex;
@@ -72,6 +73,5 @@
 
   &.is-selected {
     transform: scale(1.05);
-    box-shadow: #04040450 0px 8px 24px 0px, #4c4c4c 0px 0px 0px 1px;
   }
 }
