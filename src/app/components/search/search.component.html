@@ -24,30 +24,18 @@
         >
       </div>
     </div>
-    <div class="uom-selector">
-      <div>
-        <input
-          id="metric"
-          value="metric"
-          type="radio"
-          name="u"
-          #u="ngModel"
-          [(ngModel)]="units"
-          required
-        />
-        <label for="metric">Metric</label>
-      </div>
-      <div>
-        <input
-          id="imperial"
-          value="imperial"
-          type="radio"
-          name="u"
-          #u="ngModel"
-          [(ngModel)]="units"
-          required
-        />
-        <label for="imperial">Imperial</label>
+    <div class="uom-selector-wrapper">
+      <div class="uom-selector">
+        Imperial
+        <label class="switch">
+          <input
+            type="checkbox"
+            [checked]="metric"
+            (change)="metric = !metric"
+          />
+          <span class="slider"></span>
+        </label>
+        Metric
       </div>
     </div>
   </form>

@@ -15,7 +15,7 @@ import {
 })
 export class SearchComponent {
   query: string;
-  units: string = 'metric';
+  metric: boolean = true;
 
   constructor(
     private store: Store<any>,
@@ -32,7 +32,8 @@ export class SearchComponent {
       payload: this.query,
     });
 
-    this.weatherService.find(this.query, this.units).subscribe(
+    const uom = this.metric ? 'metric' : 'imperial';
+    this.weatherService.find(this.query, uom).subscribe(
       (res: any) => {
         this.store.dispatch({
           type: SET_SEARCH_SUCCESS,

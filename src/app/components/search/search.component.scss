@@ -1,10 +1,15 @@
 .search {
   display: flex;
   justify-content: center;
+  padding: 16px 0px;
+  margin: 16px 0px;
 
   form {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
   }
 
   .search-input-wrapper {
@@ -42,8 +47,72 @@
     }
   }
 
-  .uom-selector {
+  .uom-selector-wrapper {
     display: flex;
     align-self: flex-start;
+    margin-left: 16px;
+
+    .uom-selector {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      label {
+        margin: 0px 8px;
+      }
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 72px;
+      height: 40px;
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked + .slider {
+          background-color: #ed6e4d;
+        }
+
+        &:checked + .slider:before {
+          -webkit-transform: translateX(32px);
+          -ms-transform: translateX(32px);
+          transform: translateX(32px);
+        }
+
+        &:focus + .slider {
+          box-shadow: 0 0 1px #ed6e4d;
+        }
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #4c4c4c;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        border-radius: 40px;
+
+        &:before {
+          position: absolute;
+          content: "";
+          height: 32px;
+          width: 32px;
+          left: 4px;
+          bottom: 4px;
+          background-color: #fff;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+          border-radius: 50%;
+        }
+      }
+    }
   }
 }
