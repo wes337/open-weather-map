@@ -1,3 +1,12 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .weather-card {
   display: flex;
   flex-direction: column;
@@ -7,6 +16,8 @@
   border-radius: 8px;
   background-color: #282627;
   background-image: linear-gradient(60deg, #040404 0%, #282627 90%);
+  animation-name: fadeIn;
+  animation-duration: 500ms;
   transition: all 200ms ease-in-out;
 
   .header {
