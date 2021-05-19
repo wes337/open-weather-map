@@ -1,10 +1,10 @@
 .search-results {
   display: flex;
-  justify-content: center;
 
   .list {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 48px;
   }
 }

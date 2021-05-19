@@ -1,8 +1,6 @@
 .search {
   display: flex;
   justify-content: center;
-  padding: 16px 0px;
-  margin: 16px 0px;
 
   form {
     display: flex;
@@ -13,7 +11,7 @@
   }
 
   .search-input-wrapper {
-    height: 80px;
+    min-height: 80px;
   }
 
   .search-input-errors {
@@ -32,7 +30,7 @@
     }
 
     input {
-      color: #fff;
+      color: #f7f7f7;
       background-color: #040404;
       padding: 8px 8px 8px 48px;
       border: 1px solid #4c4c4c;
@@ -51,6 +49,7 @@
     display: flex;
     align-self: flex-start;
     margin-left: 16px;
+    margin-bottom: 16px;
 
     .uom-selector {
       display: flex;
@@ -107,7 +106,7 @@
           width: 32px;
           left: 4px;
           bottom: 4px;
-          background-color: #fff;
+          background-color: #f7f7f7;
           -webkit-transition: 0.4s;
           transition: 0.4s;
           border-radius: 50%;
