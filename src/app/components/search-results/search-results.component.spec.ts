@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { StoreModule } from '@ngrx/store';
+import { store } from '../../store';
 import { SearchResultsComponent } from './search-results.component';
 
 describe('SearchResultsComponent', () => {
@@ -8,9 +9,13 @@ describe('SearchResultsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchResultsComponent ]
-    })
-    .compileComponents();
+      imports: [
+        StoreModule.forRoot({
+          store,
+        }),
+      ],
+      declarations: [SearchResultsComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

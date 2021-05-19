@@ -1,6 +1,7 @@
 <li
+  *ngIf="city"
   class="weather-card"
-  [ngClass]="{ 'is-selected': selected === city.id }"
+  [ngClass]="{ 'is-selected': selected === city?.id }"
   (click)="selectCity(city.id)"
   tabindex="0"
 >

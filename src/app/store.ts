@@ -1,4 +1,4 @@
-const cachedState = localStorage.getItem('cachedState');
+const cachedState = localStorage && localStorage.getItem('cachedState');
 export const initialState = cachedState
   ? JSON.parse(cachedState)
   : {

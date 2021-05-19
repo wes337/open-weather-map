@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
+import { StoreModule } from '@ngrx/store';
+import { store } from './store';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      imports: [
+        StoreModule.forRoot({
+          store,
+        }),
       ],
+      declarations: [AppComponent],
     }).compileComponents();
   });
 
@@ -20,12 +25,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('nordea-open-weather-map');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('nordea-open-weather-map app is running!');
   });
 });
