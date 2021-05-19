@@ -1,6 +1,10 @@
 .search-results {
   display: flex;
 
+  p {
+    font-size: 24px;
+  }
+
   .list {
     display: flex;
     justify-content: space-between;

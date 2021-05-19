@@ -11,4 +11,7 @@
       Couldn't find any results for <i>{{ query }}</i>
     </p>
   </div>
+  <div *ngIf="waitingForInput()">
+    <p>To begin, search for a city name.</p>
+  </div>
 </div>
