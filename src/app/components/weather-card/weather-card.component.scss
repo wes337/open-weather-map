@@ -14,12 +14,11 @@
   width: 350px;
   padding: 32px;
   border-radius: 8px;
-  background-color: #282627;
-  background-image: linear-gradient(60deg, #040404 0%, #282627 90%);
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
   animation-name: fadeIn;
   animation-duration: 500ms;
   transition: all 200ms ease-in-out;
-  box-shadow: #04040450 0px 8px 24px 0px, #4c4c4c 0px 0px 0px 1px;
 
   .header {
     display: flex;

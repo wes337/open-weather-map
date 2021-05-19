@@ -31,16 +31,17 @@
 
     input {
       color: #f7f7f7;
-      background-color: #040404;
       padding: 8px 8px 8px 48px;
-      border: 1px solid #4c4c4c;
       border-radius: 8px;
       font-size: 1.2rem;
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+      border: 1px solid transparent;
 
       &:active,
       &:focus {
         outline: 0;
-        box-shadow: #04040450 0px 8px 24px 0px, #4c4c4c 0px 0px 0px 1px;
+        border-color: #4c4c4c;
       }
     }
   }
