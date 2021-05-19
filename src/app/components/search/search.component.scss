@@ -45,6 +45,28 @@
     }
   }
 
+  .search-submit {
+    align-self: flex-start;
+    margin-top: 6px;
+    margin-right: auto;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+
+    .mat-icon {
+      color: #949494;
+    }
+
+    &:hover {
+      .mat-icon {
+        color: #ed6e4d;
+      }
+    }
+  }
+
   .uom-selector-wrapper {
     display: flex;
     align-self: flex-start;

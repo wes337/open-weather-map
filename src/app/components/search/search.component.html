@@ -2,7 +2,7 @@
   <form (ngSubmit)="search(searchForm)" #searchForm="ngForm">
     <div class="search-input-wrapper">
       <div class="search-input">
-        <mat-icon aria-hidden="false" aria-label="Search">search</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="">search</mat-icon>
         <input
           placeholder="Search Location"
           [(ngModel)]="query"
@@ -24,6 +24,9 @@
         >
       </div>
     </div>
+    <button class="search-submit" type="submit">
+      <mat-icon aria-hidden="false" aria-label="Search">arrow_forward</mat-icon>
+    </button>
     <div class="uom-selector-wrapper">
       <div class="uom-selector">
         Imperial
