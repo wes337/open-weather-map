@@ -1,0 +1,41 @@
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 16px;
+  margin: 16px 0px;
+  border-radius: 8px;
+  background-image: radial-gradient(
+    circle farthest-corner at -4% -12.9%,
+    rgba(74, 98, 110, 1) 0.3%,
+    rgba(30, 33, 48, 1) 90.2%
+  );
+  color: white;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    h1 {
+      margin: 0px;
+    }
+  }
+
+  &.is-selected {
+    background-color: rosybrown;
+  }
+}

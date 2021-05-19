@@ -28,13 +28,6 @@ export class SearchResultsComponent implements DoCheck {
     });
   }
 
-  select(id: number) {
-    this.store.dispatch({
-      type: SET_SELECTED,
-      payload: id,
-    });
-  }
-
   resultsFound(): boolean {
     return this.results?.length > 0;
   }
@@ -45,7 +38,10 @@ export class SearchResultsComponent implements DoCheck {
 
   ngDoCheck(): void {
     if (!this.selected && this.results?.length === 1) {
-      this.select(this.results[0].id);
+      this.store.dispatch({
+        type: SET_SELECTED,
+        payload: this.results[0].id,
+      });
     }
   }
 }

@@ -9,9 +9,10 @@ import { WeatherService } from './weather.service';
 import { AppComponent } from './app.component';
 import { store } from './store';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 
 @NgModule({
-  declarations: [AppComponent, SearchComponent, SearchResultsComponent],
+  declarations: [AppComponent, SearchComponent, SearchResultsComponent, WeatherCardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

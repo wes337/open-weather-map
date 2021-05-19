@@ -2,26 +2,13 @@
 <div *ngIf="error">
   <p>{{ error }}</p>
 </div>
-<div *ngIf="resultsFound()">
-  <ul class="results">
-    <li *ngFor="let result of results">
-      <img
-        *ngIf="result.weather.length"
-        src="http://openweathermap.org/img/wn/{{
-          result.weather[0].icon
-        }}@2x.png"
-        width="50"
-        height="50"
-      />
-      <button (click)="select(result.id)">
-        {{ result.name }}, {{ result.sys?.country }}
-      </button>
-      <p>{{ result.main?.temp | number: "1.0-0" }}</p>
-    </li>
-  </ul>
-</div>
-<div *ngIf="noResultsFound()">
-  <p>
-    Couldn't find any results for <i>{{ query }}</i>
-  </p>
+<div *ngIf="!loading">
+  <div *ngIf="resultsFound()">
+    <weather-card *ngFor="let result of results" [city]="result"></weather-card>
+  </div>
+  <div *ngIf="noResultsFound()">
+    <p>
+      Couldn't find any results for <i>{{ query }}</i>
+    </p>
+  </div>
 </div>

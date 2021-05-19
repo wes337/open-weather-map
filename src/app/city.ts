@@ -17,8 +17,7 @@ export interface City {
     humidity: number;
   };
   dt: number;
-
-  wind?: {
+  wind: {
     speed: number;
     deg: number;
   };

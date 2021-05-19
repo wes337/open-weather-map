@@ -1,0 +1,31 @@
+<li
+  class="weather-card"
+  [ngClass]="{ 'is-selected': selected === city.id }"
+  (click)="selectCity(city.id)"
+  tabindex="0"
+>
+  <div class="header">
+    <div class="title">{{ city.name }}, {{ city.sys.country }}</div>
+    <div class="time">
+      {{ city.dt }}
+    </div>
+  </div>
+  <div class="weather" *ngIf="city.weather.length">
+    <img
+      src="http://openweathermap.org/img/wn/{{ city.weather[0].icon }}@2x.png"
+      width="100"
+      height="100"
+    />
+    <div class="weather-description">
+      {{ city.weather[0].description }}
+    </div>
+  </div>
+  <div class="footer">
+    <div class="details">
+      <div class="wind">{{ city.wind.speed }}</div>
+      <div class="humidity">{{ city.main.humidity }}</div>
+      <div class="pressure">{{ city.main.pressure }}</div>
+    </div>
+    <h1 class="temp">{{ city.main.temp | number: "1.0-0" }}</h1>
+  </div>
+</li>
