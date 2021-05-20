@@ -1,17 +1,17 @@
 <div *ngIf="loading" class="loading"><h3>Loading...</h3></div>
-<div *ngIf="error">
+<div class="card" *ngIf="error">
   <p>{{ error }}</p>
 </div>
 <div *ngIf="!loading" class="search-results">
   <div *ngIf="resultsFound()" class="list">
     <weather-card *ngFor="let result of results" [city]="result"></weather-card>
   </div>
-  <div *ngIf="noResultsFound()">
+  <div class="card" *ngIf="noResultsFound()">
     <p>
       Couldn't find any results for <i>{{ query }}</i>
     </p>
   </div>
-  <div *ngIf="waitingForInput()">
+  <div class="card" *ngIf="waitingForInput()">
     <p>To begin, search for a city name.</p>
   </div>
 </div>
