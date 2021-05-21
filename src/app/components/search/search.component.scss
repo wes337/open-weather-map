@@ -4,20 +4,52 @@
 
   form {
     display: flex;
+    flex-direction: column;
+  }
+
+  .search-input-controls {
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
   }
 
   .search-input-wrapper {
-    min-height: 100px;
+    min-height: 64px;
     margin: 0 16px;
   }
 
   .search-input-errors {
-    margin: 16px 0px;
+    margin-top: 8px;
     color: #f16b4e;
+    font-size: 14px;
+  }
+
+  .search-input-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+
+    button {
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      color: #f7f7f7;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      background: #ed6e4d;
+      box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+      border: 1px solid #4c4c4c;
+
+      &:active,
+      &:focus {
+        outline: 0;
+        border-color: #f7f7f7;
+      }
+    }
   }
 
   .search-input {

@@ -1,42 +1,50 @@
 <div class="search">
   <form (ngSubmit)="search(searchForm)" #searchForm="ngForm">
-    <div class="search-input-wrapper">
-      <div class="search-input">
-        <mat-icon aria-hidden="false" aria-label="">search</mat-icon>
-        <input
-          placeholder="Search Location"
-          [(ngModel)]="query"
-          #q="ngModel"
-          name="q"
-          required
-          type="text"
-          autocomplete="off"
-          minlength="3"
-        />
-      </div>
-      <div
-        *ngIf="q.invalid && (q.dirty || q.touched)"
-        class="search-input-errors"
-      >
-        <span *ngIf="q.errors?.required">Location is required.</span>
-        <span *ngIf="q.errors?.minlength"
-          >Please enter at least 3 characters.</span
+    <div class="search-input-controls">
+      <div class="search-input-wrapper">
+        <div class="search-input">
+          <mat-icon aria-hidden="false" aria-label="">search</mat-icon>
+          <input
+            placeholder="Search Location"
+            [(ngModel)]="query"
+            #q="ngModel"
+            name="q"
+            required
+            type="text"
+            autocomplete="off"
+            minlength="3"
+          />
+        </div>
+        <div
+          *ngIf="q.invalid && (q.dirty || q.touched)"
+          class="search-input-errors"
         >
+          <span *ngIf="q.errors?.required">Location is required.</span>
+          <span *ngIf="q.errors?.minlength"
+            >Please enter at least 3 characters.</span
+          >
+        </div>
+      </div>
+      <div class="uom-selector-wrapper">
+        <div class="uom-selector">
+          Imperial
+          <label class="switch">
+            <input
+              type="checkbox"
+              [checked]="metric"
+              (change)="metric = !metric"
+            />
+            <span class="slider"></span>
+          </label>
+          Metric
+        </div>
       </div>
     </div>
-    <div class="uom-selector-wrapper">
-      <div class="uom-selector">
-        Imperial
-        <label class="switch">
-          <input
-            type="checkbox"
-            [checked]="metric"
-            (change)="metric = !metric"
-          />
-          <span class="slider"></span>
-        </label>
-        Metric
-      </div>
+    <div class="search-input-submit">
+      <button type="submit">
+        Search&nbsp;
+        <mat-icon aria-hidden="false" aria-label="">arrow_forward</mat-icon>
+      </button>
     </div>
   </form>
 </div>
