@@ -1,5 +1,7 @@
 # NordeaOpenWeatherMap
 
+Check out the [live demo](https://nordea-open-weather-map.web.app/) of this app hosted on Firebase.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
 
 ## Development server
