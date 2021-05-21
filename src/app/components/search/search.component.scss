@@ -5,13 +5,14 @@
   form {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     flex-wrap: wrap;
   }
 
   .search-input-wrapper {
     min-height: 100px;
+    margin: 0 16px;
   }
 
   .search-input-errors {
@@ -46,32 +47,9 @@
     }
   }
 
-  .search-submit {
-    align-self: flex-start;
-    margin-top: 6px;
-    margin-right: auto;
-    background-color: Transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-
-    .mat-icon {
-      color: #949494;
-    }
-
-    &:hover {
-      .mat-icon {
-        color: #ed6e4d;
-      }
-    }
-  }
-
   .uom-selector-wrapper {
     display: flex;
     align-self: flex-start;
-    margin-left: 48px;
     margin-bottom: 16px;
 
     .uom-selector {

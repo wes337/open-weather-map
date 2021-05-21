@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  width: 350px;
+  width: 300px;
   padding: 32px;
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.5);
@@ -19,6 +19,7 @@
   animation-name: fadeIn;
   animation-duration: 500ms;
   transition: all 200ms ease-in-out;
+  margin: 48px 8px;
 
   .header {
     display: flex;
@@ -30,10 +31,17 @@
       padding: 4px 8px;
       border-radius: 8px;
       border: 1px solid #4c4c4c;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 120px;
     }
 
     .time {
       color: #949494;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -64,7 +72,7 @@
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 56px;
       margin: 0px;
       color: #ffffff;
     }

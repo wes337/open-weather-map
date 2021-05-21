@@ -3,12 +3,12 @@
   <p>{{ error }}</p>
 </div>
 <div *ngIf="!loading" class="search-results">
-  <div *ngIf="resultsFound()" class="list">
+  <ul *ngIf="resultsFound()" class="list">
     <weather-card *ngFor="let result of results" [city]="result"></weather-card>
-  </div>
+  </ul>
   <div class="card" *ngIf="noResultsFound()">
     <p>
-      Couldn't find any results for <i>{{ query }}</i>
+      Couldn't find any results for <span class="query">{{ query }}</span>
     </p>
   </div>
   <div class="card" *ngIf="waitingForInput()">

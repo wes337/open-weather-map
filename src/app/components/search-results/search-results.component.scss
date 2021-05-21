@@ -3,13 +3,18 @@
 
   p {
     font-size: 24px;
+    .query {
+      font-style: italic;
+      color: #f16b4e;
+    }
   }
 
   .list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 48px;
+    list-style: none;
+    padding-inline-start: 0;
   }
 }
 
