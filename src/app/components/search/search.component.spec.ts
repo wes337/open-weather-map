@@ -1,5 +1,10 @@
-import { HttpClientModule } from '@angular/common/http';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { store } from '../../store';
@@ -15,7 +20,7 @@ describe('SearchComponent', () => {
         StoreModule.forRoot({
           store,
         }),
-        HttpClientModule,
+        HttpClientTestingModule,
         FormsModule,
       ],
       declarations: [SearchComponent],
@@ -30,5 +35,14 @@ describe('SearchComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should toggle metric to imperial', () => {
+    const hostElement = fixture.nativeElement;
+    const toggle: HTMLInputElement =
+      hostElement.querySelector('.switch > input');
+    toggle.click();
+
+    expect(component.metric).toBe(false);
   });
 });
